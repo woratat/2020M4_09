@@ -41,15 +41,7 @@ function addStudentList(studentList){
 // }
 
 function onLoad(){
-    student = {
-        name:"John",
-        surname:"Doe",
-        studentId:"112",
-        gpa:"1.00",
-        image:"https://th.bing.com/th/id/OIP.SRu2WDafL5x25JX5B6EfPAHaD-?pid=ImgDet&rs=1"
-    }
-    addStudentToDB(student)
-    // deleteStudent(22)
+    deleteStudent(10)
 }
 
 // document.getElementById('searchButton').addEventListener('click',(event)=>{ 
@@ -61,19 +53,19 @@ function onLoad(){
 //     })
 // })
 
-function addStudentToDB(student){
-    fetch('https://dv-student-backend-2019.appspot.com/students',{
-        method: 'POST',
-        header: {
-            'Content-Type': 'application/json'
-        },
-        body:JSON.stringify(student)
-    }).then(response =>{
-        return response.json()
-    }).then(data=>{
-        console.log('success',data)
-    })
-}
+// function addStudentToDB(student){
+//     fetch('https://dv-student-backend-2019.appspot.com/students',{
+//         method: 'POST',
+//         header: {
+//             'Content-Type': 'application/json'
+//         },
+//         body:JSON.stringify(student)
+//     }).then(response =>{
+//         return response.json()
+//     }).then(data=>{
+//         console.log('success',data)
+//     })
+// }
 
 function deleteStudent(id){
     fetch(`https://dv-student-backend-2019.appspot.com/student${id}`,{
