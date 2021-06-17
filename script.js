@@ -27,37 +27,39 @@ function addStudentList(studentList){
     }
 }
 
-function addStudentData(student){
-    let idElem = document.getElementById('id')
-    idElem.innerHTML = student.id
-    let studentIdElem = document.getElementById('studentId')
-    studentIdElem.innerHTML = student.studentId
-    let nameElem = document.getElementById('name')
-    nameElem.innerHTML = `${student.name} ${student.surname}`
-    let gpaElem = document.getElementById('gpa')
-    gpaElem.innerHTML = student.gpa
-    let profileElem = document.getElementById('image')
-    profileElem.setAttribute('src', student.image)
-}
+// function addStudentData(student){
+//     let idElem = document.getElementById('id')
+//     idElem.innerHTML = student.id
+//     let studentIdElem = document.getElementById('studentId')
+//     studentIdElem.innerHTML = student.studentId
+//     let nameElem = document.getElementById('name2')
+//     nameElem.innerHTML = `${student.name} ${student.surname}`
+//     let gpaElem = document.getElementById('gpa')
+//     gpaElem.innerHTML = student.gpa
+//     let profileElem = document.getElementById('image')
+//     profileElem.setAttribute('src', student.image)
+// }
 
 function onLoad(){
-    fetch('https://dv-student-backend-2019.appspot.com/students').then(response =>{
-        return response.json()
-    })
-    .then(data=>{
-        addStudentList(data)
-    })
+    student = {
+        name:"John",
+        surname:"Doe",
+        studentId:"112",
+        gpa:"1.00",
+        image:"https://th.bing.com/th/id/OIP.SRu2WDafL5x25JX5B6EfPAHaD-?pid=ImgDet&rs=1"
+    }
+    addStudentToDB(student)
     // deleteStudent(22)
 }
 
-document.getElementById('searchButton').addEventListener('click',(event)=>{
-    let id = document.getElementById('inputText').value
-    fetch(`https://dv-student-backend-2019.appspot.com/student/${id}`).then(response=>{
-        return response.json()
-    }).then(student=>{
-        addStudentData(student)
-    })
-})
+// document.getElementById('searchButton').addEventListener('click',(event)=>{ 
+//     let id = document.getElementById('inputText').value
+//     fetch(`https://dv-student-backend-2019.appspot.com/student/${id}`).then(response=>{
+//         return response.json()
+//     }).then(student=>{
+//         addStudentData(student)
+//     })
+// })
 
 function addStudentToDB(student){
     fetch('https://dv-student-backend-2019.appspot.com/students',{
