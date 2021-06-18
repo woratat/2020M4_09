@@ -94,7 +94,6 @@ function addStudentClick(){
     student2.gpa = document.getElementById('gpa3').value
     student2.image = document.getElementById('image3').value
     addStudentToDB(student2)
-
 }
 
 document.getElementById('searchButton').addEventListener('click',(event)=>{
