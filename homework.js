@@ -90,7 +90,7 @@ function editStudent(studentEditData){
     studentEditData.image = studentEditImage
 
     updateToDB(studentEditData)
-    document.location.reload()
+    // document.location.reload() //----
 }
 
 var studentEditData
@@ -108,11 +108,11 @@ document.getElementById('submitEdit').addEventListener('click',function(){
     studentEditGpa = document.getElementById('gpaIn').value
     studentEditImage = document.getElementById('imageIn').value
 
-    studentEditName.innerHTML=""
-    studentEditSurname.innerHTML=""
-    studentEditStudentId.innerHTML=""
-    studentEditGpa.innerHTML=""
-    studentEditImage.innerHTML=""
+    // studentEditName.innerHTML=""
+    // studentEditSurname.innerHTML=""
+    // studentEditStudentId.innerHTML=""
+    // studentEditGpa.innerHTML=""
+    // studentEditImage.innerHTML=""
 
     console.log('Submit Edit')
     editStudent(studentEditData)
@@ -132,7 +132,8 @@ function updateToDB(student){
             throw Error(response.statusText)
         }
     }).then(data=>{
-        showAll()
+        showDetail(data.id,data)
+        alert('Update successed')
     }).catch(error=>{
         return null
     })
